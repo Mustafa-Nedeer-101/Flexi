@@ -1,0 +1,84 @@
+name: flexi
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.6 <4.0.0'
+
+# packages
+dependencies:
+  flutter:
+    sdk: flutter
+  # Icon Packages
+  cupertino_icons: ^1.0.2
+  iconsax: ^0.0.8
+
+  # Utility Packages
+
+  # State Management
+  get: ^4.6.6
+  http: ^1.2.0
+  intl: ^0.19.0
+  logger: ^2.2.0
+  url_launcher: ^6.2.5
+  get_storage: ^2.1.1
+  flutter_native_splash: ^2.3.11
+  smooth_page_indicator: ^1.1.0
+  carousel_slider: ^4.2.1
+  readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
+  firebase_core: ^2.30.0
+  lottie: ^3.1.0
+  connectivity_plus: ^6.0.3
+  firebase_auth: ^4.19.4
+  cloud_firestore: ^4.17.2
+  google_sign_in: ^6.2.1
+  image_picker: ^1.1.1
+  firebase_storage: ^11.7.4
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+
+  # Product Specific
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/images/onboarding/
+    - assets/images/password_config/email-sent.PNG
+    - assets/images/banners/
+    - assets/images/products/
+    - assets/images/products/product_1/
+    - assets/images/user/
+    - assets/images/reviews/
+    - assets/images/wishlist/
+    - assets/images/cart/
+    - assets/images/orders/
+    - assets/images/payment_methods/
+    - assets/images/loaders/loading.gif
+    - assets/images/sign_up/success.PNG
+    - assets/images/sign_up/verify.jpg
+    - assets/fonts/
+    - assets/logos/facebook.JPG
+    - assets/logos/google.JPG
+    - assets/logos/flexi-splash-logo-blue.JPG
+    - assets/logos/flexi-splash-logo-white.JPG
+    - assets/icons/categories/
+    - assets/icons/brands/
+    - assets/icons/payment_methods/
+    
+
+  fonts:
+    - family: Anta
+      fonts:
+        - asset: assets/fonts/Anta-Regular.ttf

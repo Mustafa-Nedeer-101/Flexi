@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1069814630936",
+    "project_id": "flexi-b37db",
+    "storage_bucket": "flexi-b37db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069814630936:android:3dea44b38b1da00b77516d",
+        "android_client_info": {
+          "package_name": "com.example.flexi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069814630936-3tad1nbfogj50qsfvj78rd19223q7mku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flexi",
+            "certificate_hash": "36511e259b5d5a4c6b878441b09051c978c9cb5f"
+          }
+        },
+        {
+          "client_id": "1069814630936-7j19q3foot4g6j5306kh23u1phgff4un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAkE3glwM202-6r0dcUCLvWk_DY_2tPvs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069814630936-7j19q3foot4g6j5306kh23u1phgff4un.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1069814630936-kiau2cjjiipfmue55dsge7vr063g9f8i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flexi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
