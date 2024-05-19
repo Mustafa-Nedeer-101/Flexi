@@ -81,13 +81,13 @@ class CImages {
   static const String promoBannerTwo =
       "assets/images/banners/promo_banner_5.jpg";
   static const String promoBannerThree =
-      "assets/images/banners/promo_banner_6.jpg";
-  static const String promoBannerFour =
-      "assets/images/banners/promo_banner_7.jpg";
-  static const String promoBannerFive =
       "assets/images/banners/promo_banner_8.jpg";
-  static const String promoBannerSix =
+  static const String promoBannerFour =
+      "assets/images/banners/promo_banner_2.jpg";
+  static const String promoBannerFive =
       "assets/images/banners/promo_banner_9.jpg";
+  static const String promoBannerSix =
+      "assets/images/banners/promo_banner_10.jpg";
 
   // Brands
   static const String defaultLogo = "assets/icons/brands/default.jpg";
@@ -111,6 +111,11 @@ class CImages {
       "assets/images/products/product_1/color3.PNG";
   static const String productImage1_4 =
       "assets/images/products/product_1/color4.PNG";
+
+  static const String adidasBootsThumbail =
+      "assets/images/products/boots/adidas_boots.jpg";
+  static const String adidasBootsImage =
+      "assets/images/products/boots/adidas_boots_2.jpg";
   static const String productImage2 = "assets/images/products/product2.png";
   static const String productImage3 = "assets/images/products/product3.PNG";
   static const String productImage4 = "assets/images/products/product4.PNG";

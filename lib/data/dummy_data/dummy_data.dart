@@ -524,6 +524,55 @@ class DummyData {
               attributeValues: {'Color': 'Red', 'Size': 'EU 34'}),
         ],
         productType: ProductType.variable.toString()),
+
+    // 003
+    ProductModel(
+        id: '3',
+        title:
+            "Adidas Launches Predator Mania 19.1 'White/Core Black/Predator Red'",
+        stock: 3,
+        price: 112,
+        isFeatured: true,
+        date: Timestamp.now(),
+        thumbnail: CImages.adidasBootsThumbail,
+        description:
+            "There's no doubt that the Predator Mania is one of the most iconic boots of all time, the seamless blending of two materials reflect Predator's historic transition from K-leather to adidas Primeknit; Heritage details include the Predator Mania's distinctive curved forefoot pads and debossing on the sides",
+        brand: BrandModel(
+            id: '2',
+            image: CImages.adidasLogo,
+            name: 'Adidas',
+            productsCount: 34,
+            isFeatured: true), // Nike
+        images: [CImages.adidasBootsThumbail, CImages.adidasBootsImage],
+        salePrice: 90,
+        sku: 'ABR4500',
+        categoryId: '1',
+        productType: ProductType.single.toString()),
+  ];
+
+  static final List<ProductModel> productsVersionTwo = [
+    ProductModel(
+        id: '3',
+        title:
+            "Adidas Launches Predator Mania 19.1 'White/Core Black/Predator Red'",
+        stock: 3,
+        price: 112,
+        isFeatured: true,
+        date: Timestamp.now(),
+        thumbnail: CImages.adidasBootsThumbail,
+        description:
+            "There's no doubt that the Predator Mania is one of the most iconic boots of all time, the seamless blending of two materials reflect Predator's historic transition from K-leather to adidas Primeknit; Heritage details include the Predator Mania's distinctive curved forefoot pads and debossing on the sides",
+        brand: BrandModel(
+            id: '9',
+            image: CImages.adidasLogo,
+            name: 'Adidas',
+            productsCount: 34,
+            isFeatured: true), // Nike
+        images: [CImages.adidasBootsThumbail, CImages.adidasBootsImage],
+        salePrice: 90,
+        sku: 'ABR4500',
+        categoryId: '1',
+        productType: ProductType.single.toString()),
   ];
 
   // ProductCategory
