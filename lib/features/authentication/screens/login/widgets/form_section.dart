@@ -9,14 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FromSection extends StatelessWidget {
-  const FromSection({
+class FormSection extends StatelessWidget {
+  const FormSection({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    final controller = LoginController.instance;
 
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: CSizes.spaceBtwSections),

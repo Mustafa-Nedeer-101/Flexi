@@ -4,7 +4,7 @@ class CColors {
   CColors._();
 
   // App Colors
-  static const Color primary = Color(0xFF4b68ff);
+  static const Color primary = Color.fromRGBO(75, 104, 255, 1);
   static const Color secondary = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFb0c7ff);
 

@@ -7,6 +7,7 @@ class CImages {
   // App logos
   static const String darkAppLogo = "assets/logos/flexi-splash-logo-white.JPG";
   static const String lightAppLogo = "assets/logos/flexi-splash-logo-blue.JPG";
+  static const String blueLogo = "assets/logos/blue.png";
 
   // Loaders
   static const String loading = 'assets/images/loaders/loading.gif';

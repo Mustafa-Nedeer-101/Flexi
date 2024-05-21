@@ -59,7 +59,6 @@ class AuthenticationRepo extends GetxController {
         Get.offAll(() => const Login());
       } else {
         Get.offAll(() => const OnBoarding());
-        deviceStorage.write('isSecondTime', true);
       }
     }
   }

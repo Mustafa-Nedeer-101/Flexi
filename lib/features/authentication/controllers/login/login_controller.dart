@@ -5,6 +5,7 @@ import 'package:flexi/features/personalization/controllers/user_controller.dart'
 import 'package:flexi/navigation_menu.dart';
 import 'package:flexi/utils/constants/image_strings.dart';
 import 'package:flexi/utils/controllers/network_manager.dart';
+import 'package:flexi/utils/local_storage/sorage_utility.dart';
 import 'package:flexi/utils/popups/full_screen_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,9 +26,12 @@ class LoginController extends GetxController {
 
   // onInit
   @override
-  onInit() {
-    email.text = deviceStorage.read('REMEMBER_ME_EMAIL');
-    password.text = deviceStorage.read('REMEMBER_ME_PASSWORD');
+  onInit() async {
+    // If remember user
+    if (deviceStorage.read('REMEMBER_ME_EMAIL') != null) {
+      email.text = deviceStorage.read('REMEMBER_ME_EMAIL');
+      password.text = deviceStorage.read('REMEMBER_ME_PASSWORD');
+    }
     super.onInit();
   }
 
@@ -71,6 +75,14 @@ class LoginController extends GetxController {
       // ignore: unused_local_variable
       UserCredential userCredential = await AuthenticationRepo.instance
           .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+
+      // Initialize Local Storage if the not initialized
+      if (deviceStorage.read("isSecondTime") != true) {
+        // Initialize user specific storage
+        await ULocalStorage.init(userCredential.user!.uid);
+      }
+
+      deviceStorage.write('isSecondTime', true);
 
       //Remove Loader
       UFullSreenLoader.stopLoading();

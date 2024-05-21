@@ -20,8 +20,12 @@ class OrderRepo extends GetxController {
         throw 'Unable to find user information. Try again in few minutes';
       }
 
-      final result =
-          await _db.collection('Users').doc(userId).collection('Orders').get();
+      final result = await _db
+          .collection('Users')
+          .doc(userId)
+          .collection('Orders')
+          .orderBy("OrderDate", descending: true)
+          .get();
 
       return result.docs
           .map((doc) => OrderModel.instanceFromQueryDocumentSnapshot(doc))

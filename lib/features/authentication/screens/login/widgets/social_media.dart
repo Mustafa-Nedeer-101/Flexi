@@ -3,14 +3,13 @@ import 'package:flexi/utils/constants/colors.dart';
 import 'package:flexi/utils/constants/image_strings.dart';
 import 'package:flexi/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomSocialMedia extends StatelessWidget {
   const CustomSocialMedia({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final LoginController controller = Get.put(LoginController());
+    final LoginController controller = LoginController.instance;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
