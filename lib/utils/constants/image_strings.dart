@@ -44,12 +44,6 @@ class CImages {
   static const String facebook = "assets/logos/facebook.JPG";
 
   // Categories
-  static const String women = "assets/icons/categories/women.PNG";
-  static const String men = "assets/icons/categories/men.PNG";
-  static const String kids = "assets/icons/categories/kids.PNG";
-  static const String jewelry = "assets/icons/categories/jewelry.PNG";
-  static const String decor = "assets/icons/categories/decor.PNG";
-  static const String home = "assets/icons/categories/home.PNG";
   static const String sportsIcon = "assets/icons/categories/sports_icon.png";
   static const String clothesIcon = "assets/icons/categories/clothes_icon.png";
   static const String shoesIcon = "assets/icons/categories/shoes_icon.png";
@@ -117,6 +111,50 @@ class CImages {
       "assets/images/products/boots/adidas_boots.jpg";
   static const String adidasBootsImage =
       "assets/images/products/boots/adidas_boots_2.jpg";
+
+  static const String appleAirPods_1 =
+      'assets/images/products/apple_airpods_1.jpg';
+  static const String appleAirPods_2 =
+      'assets/images/products/apple_airpods_2.jpg';
+  static const String appleAirPods_3 =
+      'assets/images/products/apple_airpods_3.jpg';
+
+  static const String appleWatch_1 = 'assets/images/products/apple_watch_1.jpg';
+  static const String appleWatch_2 = 'assets/images/products/apple_watch_2.jpg';
+
+  static const String iphone_1 = 'assets/images/products/iphone_1.jpg';
+  static const String iphone_2 = 'assets/images/products/iphone_2.jpg';
+  static const String iphone_3 = 'assets/images/products/iphone_3.jpg';
+  static const String iphone_4 = 'assets/images/products/iphone_4.jpg';
+
+  static const String samsungLaptop_1 =
+      'assets/images/products/samsung_laptop_1.jpg';
+  static const String samsungLaptop_2 =
+      'assets/images/products/samsung_laptop_2.jpg';
+  static const String samsungLaptop_3 =
+      'assets/images/products/samsung_laptop_3.jpg';
+
+  static const String samsungGalaxy_1 =
+      'assets/images/products/samsung_galaxy_1.jpg';
+  static const String samsungGalaxy_2 =
+      'assets/images/products/samsung_galaxy_2.jpg';
+  static const String samsungGalaxy_3 =
+      'assets/images/products/samsung_galaxy_3.jpg';
+
+  static const String samsungTab_1 = "assets/images/products/samsung_tab_1.jpg";
+  static const String samsungTab_2 = "assets/images/products/samsung_tab_2.jpg";
+  static const String samsungTab_3 = "assets/images/products/samsung_tab_3.jpg";
+
+  static const String samsungViewInfinity_1 =
+      "assets/images/products/samsung_viewinfinity_1.jpg";
+  static const String samsungViewInfinity_2 =
+      "assets/images/products/samsung_viewinfinity_2.jpg";
+  static const String samsungViewInfinity_3 =
+      "assets/images/products/samsung_viewinfinity_3.jpg";
+
+  static const String samsungHeadphones =
+      "assets/images/products/white_headphones.jpg";
+
   static const String productImage2 = "assets/images/products/product2.png";
   static const String productImage3 = "assets/images/products/product3.PNG";
   static const String productImage4 = "assets/images/products/product4.PNG";

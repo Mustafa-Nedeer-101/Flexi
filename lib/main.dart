@@ -1,3 +1,4 @@
+import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flexi/app.dart';
 import 'package:flexi/data/repositories/authentication/authentication_repo.dart';
@@ -23,6 +24,12 @@ void main() async {
     (FirebaseApp value) => Get.put(AuthenticationRepo()),
   );
 
-  // Todo: Init authentication
+  // Todo: App Check
+  await FirebaseAppCheck.instance.activate(
+    webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
+    appleProvider: AppleProvider.appAttest,
+    androidProvider: AndroidProvider.debug,
+  );
+
   runApp(const App());
 }

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flexi/common/widgets/appbar/appbar.dart';
 import 'package:flexi/common/widgets/texts/section_header.dart';
 import 'package:flexi/data/dummy_data/dummy_data.dart';
