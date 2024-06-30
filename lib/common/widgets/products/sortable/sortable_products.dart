@@ -18,42 +18,47 @@ class CustomSortableProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(AllProductsController());
     controller.assignProducts(products);
-    return Column(
-      children: [
-        // Drop Down
-        DropdownButtonFormField(
-            onChanged: (value) {
-              controller.sortProducts(value ?? 'Name');
-            },
-            value: controller.selectedSortOption.value,
-            items: [
-              'Name',
-              'Higher Price',
-              'Lower Price',
-              'Sale',
-              'Newest',
-              'Popularity'
-            ]
-                .map(
-                  (option) => DropdownMenuItem(
-                    value: option,
-                    child: Text(option),
-                  ),
-                )
-                .toList()),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: CSizes.defaultSpace),
+        child: Column(
+          children: [
+            // Drop Down
+            DropdownButtonFormField(
+                onChanged: (value) {
+                  controller.sortProducts(value ?? 'Name');
+                },
+                value: controller.selectedSortOption.value,
+                items: [
+                  'Name',
+                  'Higher Price',
+                  'Lower Price',
+                  'Sale',
+                  'Newest',
+                  'Popularity'
+                ]
+                    .map(
+                      (option) => DropdownMenuItem(
+                        value: option,
+                        child: Text(option),
+                      ),
+                    )
+                    .toList()),
 
-        const SizedBox(
-          height: CSizes.spaceBtwSections,
+            const SizedBox(
+              height: CSizes.spaceBtwSections,
+            ),
+            // Grid View
+            Obx(
+              () => CustomGridLayout(
+                  itemCount: controller.products.length,
+                  itemBuilder: (context, index) => CustomProductCardVertical(
+                        product: controller.products[index],
+                      )),
+            ),
+          ],
         ),
-        // Grid View
-        Obx(
-          () => CustomGridLayout(
-              itemCount: controller.products.length,
-              itemBuilder: (context, index) => CustomProductCardVertical(
-                    product: controller.products[index],
-                  )),
-        ),
-      ],
+      ),
     );
   }
 }

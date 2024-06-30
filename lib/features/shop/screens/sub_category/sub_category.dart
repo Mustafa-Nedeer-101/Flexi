@@ -36,8 +36,9 @@ class SubCategoryScreen extends StatelessWidget {
               // Banner
               const CustomRoundEdgesImage(
                 imageUrl: CImages.promoBannerFour,
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 width: double.infinity,
+                height: CSizes.imageCarouselHeight,
                 applyImageRadius: true,
                 borderRadius: CSizes.lg,
               ),

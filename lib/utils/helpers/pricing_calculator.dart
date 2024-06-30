@@ -1,3 +1,6 @@
+import 'package:flexi/features/shop/models/product_model.dart';
+import 'package:flexi/utils/constants/enums.dart';
+
 class UPricingCalculator {
   // Calculate Price based on tax and shipping
   static double calculateTotalPrice(double productPrice, String location) {
@@ -34,4 +37,22 @@ class UPricingCalculator {
     // use Database or API
     return 5.00;
   }
+
+  static double calculateSalePrice(ProductModel product) {
+    if (product.productType == ProductType.single.toString()) {
+      return product.salePrice;
+    } else {
+      double salePrice = double.maxFinite;
+
+      for (final variant in product.productVariations!) {
+        if (variant.salePrice < salePrice) {
+          salePrice = variant.salePrice;
+        }
+      }
+
+      return salePrice;
+    }
+  }
+
+  //
 }

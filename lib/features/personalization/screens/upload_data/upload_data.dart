@@ -18,6 +18,7 @@ import 'package:flexi/features/personalization/screens/upload_data/widgets/setti
 import 'package:flexi/features/shop/models/order_model.dart';
 import 'package:flexi/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class UploadDataScreen extends StatelessWidget {
@@ -76,8 +77,8 @@ class UploadDataScreen extends StatelessWidget {
                 icon: Iconsax.shopping_cart,
                 title: 'Upload Products',
                 trailing: const Icon(Iconsax.arrow_circle_up),
-                onTap: () => ProductRepo.instance
-                    .uploadDummyDataTest(DummyData.productsVersionTwo),
+                onTap: () =>
+                    ProductRepo.instance.uploadDummyDataTest(DummyData.nike),
               ),
 
               // Upload Banners
@@ -117,8 +118,11 @@ class UploadDataScreen extends StatelessWidget {
                 icon: Iconsax.blend,
                 title: 'Upload Brands & Categories Relation Data',
                 trailing: Icon(Iconsax.arrow_circle_up),
-                onTap: () => BrandCategoryRepo.instance
-                    .uploadDummyData(DummyData.brandCat),
+                onTap: () {
+                  Get.put(BrandCategoryRepo());
+                  BrandCategoryRepo.instance
+                      .uploadDummyData(DummyData.brandCat);
+                },
               ),
 
               // Upload ProductCategory

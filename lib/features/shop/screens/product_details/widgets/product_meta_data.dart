@@ -12,6 +12,7 @@ import 'package:flexi/utils/constants/enums.dart';
 import 'package:flexi/utils/constants/image_strings.dart';
 import 'package:flexi/utils/constants/sizes.dart';
 import 'package:flexi/utils/helpers/helper_functions.dart';
+import 'package:flexi/utils/helpers/pricing_calculator.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailMetaData extends StatelessWidget {
@@ -61,8 +62,13 @@ class ProductDetailMetaData extends StatelessWidget {
                     .apply(decoration: TextDecoration.lineThrough),
               ),
 
-            const HomeProductPriceText(
-              price: '150',
+            // Space
+            const SizedBox(
+              width: CSizes.spaceBtwItems,
+            ),
+
+            HomeProductPriceText(
+              price: UPricingCalculator.calculateSalePrice(product).toString(),
               isLarge: true,
               lineThrough: false,
             ),

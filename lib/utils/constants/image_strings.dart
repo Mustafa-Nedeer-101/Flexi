@@ -155,6 +155,11 @@ class CImages {
   static const String samsungHeadphones =
       "assets/images/products/white_headphones.jpg";
 
+  static const String nike_1 = 'assets/images/products/nike_t-shirt_1.jpg';
+  static const String nike_2 = 'assets/images/products/nike_t-shirt_2.jpg';
+  static const String nike_3 = 'assets/images/products/nike_t-shirt_3.jpg';
+  static const String nike_4 = 'assets/images/products/nike_t-shirt_4.jpg';
+
   static const String productImage2 = "assets/images/products/product2.png";
   static const String productImage3 = "assets/images/products/product3.PNG";
   static const String productImage4 = "assets/images/products/product4.PNG";

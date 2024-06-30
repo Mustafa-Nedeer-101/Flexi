@@ -131,17 +131,20 @@ class DummyData {
         id: '15',
         name: 'Mobile',
         image: CImages.electronicsIcon,
-        isFeatured: false),
+        isFeatured: false,
+        parentId: '3'),
     CategoryModel(
         id: '16',
         name: 'Laptops',
         image: CImages.electronicsIcon,
-        isFeatured: false),
+        isFeatured: false,
+        parentId: '3'),
     CategoryModel(
         id: '17',
         name: 'Apple',
         image: CImages.electronicsIcon,
-        isFeatured: false),
+        isFeatured: false,
+        parentId: '3'),
 
     // Clothes
     CategoryModel(
@@ -777,7 +780,6 @@ class DummyData {
           CImages.productImage1_3,
           CImages.productImage1_4,
         ],
-        salePrice: 30,
         sku: 'ABR4568',
         categoryId: '18',
         productAttributes: [
@@ -908,6 +910,152 @@ class DummyData {
         productType: ProductType.variable.toString()),
   ];
 
+  // Nike Product
+  static final List<ProductModel> nike = [
+    ProductModel(
+        id: '11',
+        title: "Nike Men's Park Short Sleeve T Shirt",
+        stock: 11,
+        price: 24,
+        isFeatured: true,
+        date: Timestamp.now(),
+        thumbnail: CImages.nike_1,
+        description: '''
+              Dri-FIT technology helps keep you dry and comfortable
+              Mesh back panel adds breathability
+              Dri-FIT technology helps keep you dry and comfortable
+              Mesh back panel adds breathability
+            ''',
+        brand: BrandModel(
+            id: '1',
+            image: CImages.nikeLogo,
+            name: 'Nike',
+            productsCount: 265,
+            isFeatured: true), // Nike
+        images: [
+          CImages.nike_1,
+          CImages.nike_2,
+          CImages.nike_3,
+          CImages.nike_4,
+        ],
+        sku: 'ACC4568',
+        categoryId: '18', // Casual
+        productAttributes: [
+          // Color and Size
+          ProductAttributeModel(
+              name: 'Color', values: ['Black', 'Red', 'Green', 'Grey']),
+          ProductAttributeModel(
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU 34']),
+        ],
+        productVariations: [
+          // Each Combination
+          // Black
+          ProductVariationModel(
+              id: '1',
+              stock: 3,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_1,
+              description: '',
+              attributeValues: {'Color': 'Black', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '2',
+              stock: 4,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_1,
+              description: '',
+              attributeValues: {'Color': 'Black', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '3',
+              stock: 4,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_1,
+              description: '',
+              attributeValues: {'Color': 'Black', 'Size': 'EU 34'}),
+
+          // Color: Red
+          ProductVariationModel(
+              id: '4',
+              stock: 5,
+              price: 26,
+              salePrice: 25,
+              image: CImages.nike_2,
+              description: '',
+              attributeValues: {'Color': 'Red', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '5',
+              stock: 6,
+              price: 26,
+              salePrice: 25,
+              image: CImages.nike_2,
+              description: '',
+              attributeValues: {'Color': 'Red', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '6',
+              stock: 8,
+              price: 26,
+              salePrice: 25,
+              image: CImages.nike_2,
+              description: '',
+              attributeValues: {'Color': 'Red', 'Size': 'EU 34'}),
+
+          // Green
+          ProductVariationModel(
+              id: '7',
+              stock: 8,
+              price: 24,
+              salePrice: 20,
+              image: CImages.nike_3,
+              description: '',
+              attributeValues: {'Color': 'Green', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '8',
+              stock: 8,
+              price: 24,
+              salePrice: 20,
+              image: CImages.nike_3,
+              description: '',
+              attributeValues: {'Color': 'Green', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '9',
+              stock: 12,
+              price: 24,
+              salePrice: 20,
+              image: CImages.nike_3,
+              description: '',
+              attributeValues: {'Color': 'Green', 'Size': 'EU 34'}),
+
+          // Grey
+          ProductVariationModel(
+              id: '10',
+              stock: 0,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_4,
+              description: '',
+              attributeValues: {'Color': 'Grey', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '11',
+              stock: 2,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_4,
+              description: '',
+              attributeValues: {'Color': 'Grey', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '12',
+              stock: 4,
+              price: 30,
+              salePrice: 28,
+              image: CImages.nike_4,
+              description: '',
+              attributeValues: {'Color': 'Grey', 'Size': 'EU 34'}),
+        ],
+        productType: ProductType.variable.toString()),
+  ];
+
   // ProductCategory
   static final List<ProductCategoryModel> productCat = [
     // Clothes
@@ -938,63 +1086,50 @@ class DummyData {
   // BrandCategory
   static final List<BrandCategoryModel> brandCat = [
     // Nike Brand
-    BrandCategoryModel(categoryId: '1', brandId: '1'),
     BrandCategoryModel(categoryId: '9', brandId: '1'),
     BrandCategoryModel(categoryId: '10', brandId: '1'),
     BrandCategoryModel(categoryId: '11', brandId: '1'),
 
     // Adidas brand
-    BrandCategoryModel(categoryId: '1', brandId: '2'),
     BrandCategoryModel(categoryId: '9', brandId: '2'),
     BrandCategoryModel(categoryId: '10', brandId: '2'),
     BrandCategoryModel(categoryId: '11', brandId: '2'),
 
     // Jordan
-    BrandCategoryModel(categoryId: '1', brandId: '7'),
     BrandCategoryModel(categoryId: '9', brandId: '7'),
     BrandCategoryModel(categoryId: '10', brandId: '7'),
     BrandCategoryModel(categoryId: '11', brandId: '7'),
 
     // Puma
-    BrandCategoryModel(categoryId: '1', brandId: '8'),
-    BrandCategoryModel(categoryId: '4', brandId: '8'),
     BrandCategoryModel(categoryId: '9', brandId: '8'),
     BrandCategoryModel(categoryId: '10', brandId: '8'),
     BrandCategoryModel(categoryId: '11', brandId: '8'),
 
     // ZARA
-    BrandCategoryModel(categoryId: '7', brandId: '9'),
-    BrandCategoryModel(categoryId: '4', brandId: '9'),
-    BrandCategoryModel(categoryId: '8', brandId: '9'),
     BrandCategoryModel(categoryId: '18', brandId: '9'),
     BrandCategoryModel(categoryId: '19', brandId: '9'),
 
     // Kenwood
-    BrandCategoryModel(categoryId: '2', brandId: '3'),
     BrandCategoryModel(categoryId: '12', brandId: '3'),
     BrandCategoryModel(categoryId: '13', brandId: '3'),
     BrandCategoryModel(categoryId: '14', brandId: '3'),
 
     // Ikea
-    BrandCategoryModel(categoryId: '2', brandId: '4'),
     BrandCategoryModel(categoryId: '12', brandId: '4'),
     BrandCategoryModel(categoryId: '13', brandId: '4'),
     BrandCategoryModel(categoryId: '14', brandId: '4'),
 
     // Apple
-    BrandCategoryModel(categoryId: '3', brandId: '5'),
     BrandCategoryModel(categoryId: '15', brandId: '5'),
     BrandCategoryModel(categoryId: '16', brandId: '5'),
     BrandCategoryModel(categoryId: '17', brandId: '5'),
 
     // Acer
-    BrandCategoryModel(categoryId: '3', brandId: '6'),
     BrandCategoryModel(categoryId: '15', brandId: '6'),
     BrandCategoryModel(categoryId: '16', brandId: '6'),
     BrandCategoryModel(categoryId: '17', brandId: '6'),
 
     // Samsung
-    BrandCategoryModel(categoryId: '3', brandId: '10'),
     BrandCategoryModel(categoryId: '15', brandId: '10'),
     BrandCategoryModel(categoryId: '16', brandId: '10'),
     BrandCategoryModel(categoryId: '17', brandId: '10'),
