@@ -8,6 +8,7 @@ import 'package:flexi/features/authentication/screens/login/login.dart';
 import 'package:flexi/features/personalization/screens/address/address.dart';
 import 'package:flexi/features/personalization/screens/profile/profile.dart';
 import 'package:flexi/features/personalization/screens/upload_data/upload_data.dart';
+import 'package:flexi/features/shop/screens/cart/cart.dart';
 import 'package:flexi/features/shop/screens/orders/orders.dart';
 import 'package:flexi/utils/constants/colors.dart';
 import 'package:flexi/utils/constants/sizes.dart';
@@ -66,7 +67,7 @@ class SettingsScreen extends StatelessWidget {
                     height: CSizes.spaceBtwItems,
                   ),
 
-                  // Acount Settings
+                  // Address Settings
                   CustomSettingMenuTile(
                     icon: Iconsax.safe_home,
                     title: CTexts.myAddressesTitle,
@@ -75,10 +76,12 @@ class SettingsScreen extends StatelessWidget {
                   ),
 
                   // My Cart
-                  const CustomSettingMenuTile(
-                      icon: Iconsax.shopping_cart,
-                      title: CTexts.myCartTitle,
-                      subTitle: CTexts.myCartSubTitle),
+                  CustomSettingMenuTile(
+                    icon: Iconsax.shopping_cart,
+                    title: CTexts.myCartTitle,
+                    subTitle: CTexts.myCartSubTitle,
+                    onTap: () => Get.to(() => const CartScreen()),
+                  ),
 
                   // My Orders
                   CustomSettingMenuTile(

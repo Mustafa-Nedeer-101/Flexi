@@ -78,7 +78,7 @@ class UploadDataScreen extends StatelessWidget {
                 title: 'Upload Products',
                 trailing: const Icon(Iconsax.arrow_circle_up),
                 onTap: () =>
-                    ProductRepo.instance.uploadDummyDataTest(DummyData.nike),
+                    ProductRepo.instance.uploadDummyDataTest(DummyData.zara),
               ),
 
               // Upload Banners

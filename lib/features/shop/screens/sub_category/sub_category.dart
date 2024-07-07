@@ -69,7 +69,8 @@ class SubCategoryScreen extends StatelessWidget {
 
                         return FutureBuilder(
                           future: controller.getCategoryProducts(
-                              categoryId: subCategory.id),
+                            categoryId: subCategory.id,
+                          ),
                           builder: (context, snapshot) {
                             // Handle Waiting and Error
                             final widget =

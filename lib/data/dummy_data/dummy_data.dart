@@ -1056,31 +1056,201 @@ class DummyData {
         productType: ProductType.variable.toString()),
   ];
 
+  static final List<ProductModel> zara = [
+    ProductModel(
+        id: '12',
+        title: "Womens Summer One Piece Sleeveless",
+        stock: 50,
+        price: 40,
+        isFeatured: true,
+        date: Timestamp.now(),
+        thumbnail: CImages.zara_1,
+        description: '''
+              DPRETTYGARDEN Womens Summer One Piece Sleeveless One Piece 
+              Jumpsuits For Women/ Summer Clothes For Women/ Sleeveless Womens Rompers/ 
+              Wide Leg Jumpsuit With Pockets/ Mock Neck Jumpsuits For Women Casual/ 
+              Pants Rompers For Women Summer/ 
+              Rompers For Women Dressy With Zipper/ Teacher Outfits For Women
+            ''',
+        brand: BrandModel(
+            id: '9',
+            image: CImages.zaraLogo,
+            name: 'ZARA',
+            productsCount: 90,
+            isFeatured: true), // Zara
+        images: [
+          CImages.zara_1,
+          CImages.zara_2,
+          CImages.zara_3,
+          CImages.zara_4,
+          CImages.zara_6,
+        ],
+        sku: 'BCC4568',
+        categoryId: '18', // Casual
+        productAttributes: [
+          // Color and Size
+          ProductAttributeModel(name: 'Color', values: [
+            'Camel',
+            'Brink Red',
+            'Navy',
+            'Dusty Pink',
+            'Light Blue'
+          ]),
+          ProductAttributeModel(
+              name: 'Size', values: ['EU 30', 'EU 32', 'EU 34']),
+        ],
+        productVariations: [
+          // Each Combination
+          // Camel
+          ProductVariationModel(
+              id: '1',
+              stock: 3,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_1,
+              description: '',
+              attributeValues: {'Color': 'Camel', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '2',
+              stock: 4,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_1,
+              description: '',
+              attributeValues: {'Color': 'Camel', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '3',
+              stock: 4,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_1,
+              description: '',
+              attributeValues: {'Color': 'Camel', 'Size': 'EU 34'}),
+
+          // Color: Brink Red
+          ProductVariationModel(
+              id: '4',
+              stock: 5,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_2,
+              description: '',
+              attributeValues: {'Color': 'Brink Red', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '5',
+              stock: 6,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_2,
+              description: '',
+              attributeValues: {'Color': 'Brink Red', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '6',
+              stock: 8,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_2,
+              description: '',
+              attributeValues: {'Color': 'Brink Red', 'Size': 'EU 34'}),
+
+          // Navy
+          ProductVariationModel(
+              id: '7',
+              stock: 8,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_3,
+              description: '',
+              attributeValues: {'Color': 'Navy', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '8',
+              stock: 8,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_3,
+              description: '',
+              attributeValues: {'Color': 'Navy', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '9',
+              stock: 12,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_3,
+              description: '',
+              attributeValues: {'Color': 'Navy', 'Size': 'EU 34'}),
+
+          // Dusty Pink
+          ProductVariationModel(
+              id: '10',
+              stock: 0,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_4,
+              description: '',
+              attributeValues: {'Color': 'Dusty Pink', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '11',
+              stock: 2,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_4,
+              description: '',
+              attributeValues: {'Color': 'Dusty Pink', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '12',
+              stock: 4,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_4,
+              description: '',
+              attributeValues: {'Color': 'Dusty Pink', 'Size': 'EU 34'}),
+
+          // Light Blue
+          ProductVariationModel(
+              id: '13',
+              stock: 0,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_6,
+              description: '',
+              attributeValues: {'Color': 'Light Blue', 'Size': 'EU 30'}),
+          ProductVariationModel(
+              id: '14',
+              stock: 2,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_6,
+              description: '',
+              attributeValues: {'Color': 'Light Blue', 'Size': 'EU 32'}),
+          ProductVariationModel(
+              id: '15',
+              stock: 4,
+              price: 40,
+              salePrice: 35,
+              image: CImages.zara_6,
+              description: '',
+              attributeValues: {'Color': 'Light Blue', 'Size': 'EU 34'}),
+        ],
+        productType: ProductType.variable.toString()),
+  ];
   // ProductCategory
   static final List<ProductCategoryModel> productCat = [
-    // Clothes
-    ProductCategoryModel(productId: '1', categoryId: '4'),
-    ProductCategoryModel(productId: '2', categoryId: '4'),
-    ProductCategoryModel(productId: '3', categoryId: '4'),
-    ProductCategoryModel(productId: '4', categoryId: '4'),
-    ProductCategoryModel(productId: '5', categoryId: '4'),
-    ProductCategoryModel(productId: '6', categoryId: '4'),
-
-    // Casual
-    ProductCategoryModel(productId: '1', categoryId: '18'),
+    // Products and their categories
+    ProductCategoryModel(productId: '1', categoryId: '16'),
     ProductCategoryModel(productId: '2', categoryId: '18'),
-    ProductCategoryModel(productId: '3', categoryId: '18'),
-    ProductCategoryModel(productId: '4', categoryId: '18'),
-    ProductCategoryModel(productId: '5', categoryId: '18'),
-    ProductCategoryModel(productId: '6', categoryId: '18'),
-
-    // Formal
-    ProductCategoryModel(productId: '1', categoryId: '19'),
     ProductCategoryModel(productId: '2', categoryId: '19'),
-    ProductCategoryModel(productId: '3', categoryId: '19'),
-    ProductCategoryModel(productId: '4', categoryId: '19'),
-    ProductCategoryModel(productId: '5', categoryId: '19'),
-    ProductCategoryModel(productId: '6', categoryId: '19'),
+    ProductCategoryModel(productId: '3', categoryId: '9'),
+    ProductCategoryModel(productId: '4', categoryId: ''),
+    ProductCategoryModel(productId: '5', categoryId: '15'),
+    ProductCategoryModel(productId: '6', categoryId: ''),
+    ProductCategoryModel(productId: '7', categoryId: ''),
+    ProductCategoryModel(productId: '8', categoryId: '17'),
+    ProductCategoryModel(productId: '9', categoryId: '17'),
+    ProductCategoryModel(productId: '10', categoryId: '15'),
+    ProductCategoryModel(productId: '10', categoryId: '17'),
+    ProductCategoryModel(productId: '11', categoryId: '18'),
+    ProductCategoryModel(productId: '12', categoryId: '18'),
+    ProductCategoryModel(productId: '12', categoryId: '19'),
   ];
 
   // BrandCategory
