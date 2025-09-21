@@ -20,10 +20,6 @@ class UFullSreenLoader {
             height: double.infinity,
             child: Column(
               children: [
-                const SizedBox(
-                  height: 150,
-                ),
-
                 // AnimatedLoaderWidget
                 CustomAnimationLoaderWidget(
                   text: text,

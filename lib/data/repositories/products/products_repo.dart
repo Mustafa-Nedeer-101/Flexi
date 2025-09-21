@@ -36,7 +36,7 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw e.code;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw 'Something went wrong. ${e.toString()}';
     }
   }
 
@@ -108,7 +108,7 @@ class ProductRepo extends GetxController {
               .limit(limit)
               .get();
 
-      // Products ids strings
+      //Products ids strings
       final productIds = productCategoryQuery.docs
           .map((p) => p["ProductId"] as String)
           .toList();
@@ -119,9 +119,9 @@ class ProductRepo extends GetxController {
           .where(FieldPath.documentId, whereIn: productIds)
           .get();
 
-      // Products model
+      //Products model
       final products = productsQuery.docs
-          .map((product) => ProductModel.instanceFromDocumentSnapshot(product))
+          .map((product) => ProductModel.instanceFromQuerySnapshot(product))
           .toList();
 
       return products;
@@ -134,7 +134,7 @@ class ProductRepo extends GetxController {
     } on PlatformException catch (e) {
       throw e.code;
     } catch (e) {
-      throw 'Something went wrong. Please try again';
+      throw 'Something went wrong. ${e.toString()}';
     }
   }
 

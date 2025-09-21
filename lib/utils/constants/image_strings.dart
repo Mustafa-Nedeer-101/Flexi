@@ -5,8 +5,8 @@ class CImages {
   static const String user = "assets/images/user/user.PNG";
 
   // App logos
-  static const String darkAppLogo = "assets/logos/flexi-splash-logo-white.JPG";
-  static const String lightAppLogo = "assets/logos/flexi-splash-logo-blue.JPG";
+  static const String darkAppLogo = "assets/logos/sign_logo_dark.png";
+  static const String lightAppLogo = "assets/logos/sign_logo_light.png";
   static const String blueLogo = "assets/logos/blue.png";
 
   // Loaders
@@ -24,12 +24,10 @@ class CImages {
       'assets/images/orders/order_complete.gif';
 
   // Onboarding Images
-  static const String onBoardingImageOne =
-      "assets/images/onboarding/look_for_items.PNG";
-  static const String onBoardingImageTwo =
-      "assets/images/onboarding/payment.PNG";
+  static const String onBoardingImageOne = "assets/images/onboarding/shop.gif";
+  static const String onBoardingImageTwo = "assets/images/onboarding/pay.gif";
   static const String onBoardingImageThree =
-      "assets/images/onboarding/delivery.PNG";
+      "assets/images/onboarding/deliver.gif";
 
   // sign Up Images
   static const String verigyEmail = "assets/images/sign_up/verify.jpg";
@@ -40,8 +38,8 @@ class CImages {
       "assets/images/password_config/email-sent.PNG";
 
   // Social Media Logos
-  static const String google = "assets/logos/google.JPG";
-  static const String facebook = "assets/logos/facebook.JPG";
+  static const String google = "assets/logos/google.png";
+  static const String facebook = "assets/logos/facebook.png";
 
   // Categories
   static const String sportsIcon = "assets/icons/categories/sports_icon.png";

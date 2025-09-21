@@ -26,7 +26,7 @@ class CColors {
 
   // Background Container Colors
   static const Color ligntContainer = Color(0xFFF6F6F6);
-  static Color darkContainer = CColors.textWhite.withOpacity(0.1);
+  static Color darkContainer = CColors.textWhite.withValues(alpha: 0.1);
 
   // Button Colors
   static const Color buttonPrimary = Color(0xFF4b68ff);
