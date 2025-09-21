@@ -67,7 +67,8 @@ class CustomProductCardHorizontal extends StatelessWidget {
                         radius: CSizes.sm,
                         padding: const EdgeInsets.symmetric(
                             horizontal: CSizes.sm, vertical: CSizes.xs),
-                        backgroundColor: CColors.secondary.withOpacity(0.8),
+                        backgroundColor:
+                            CColors.secondary.withValues(alpha: 0.8),
                         child: Text(
                           "$salePercentage%",
                           style: Theme.of(context)

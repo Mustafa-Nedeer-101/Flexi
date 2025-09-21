@@ -32,9 +32,7 @@ class StoreCategoryTab extends StatelessWidget {
               // Brands
               CategoryBrands(category: category),
 
-              const SizedBox(
-                height: CSizes.spaceBtwItems,
-              ),
+              const SizedBox(height: CSizes.spaceBtwItems),
 
               // Products
               FutureBuilder(
@@ -64,9 +62,8 @@ class StoreCategoryTab extends StatelessWidget {
                           );
                         }),
                       ),
-                      const SizedBox(
-                        height: CSizes.spaceBtwItems,
-                      ),
+
+                      const SizedBox(height: CSizes.spaceBtwItems),
 
                       // Products
                       CustomGridLayout(
@@ -76,9 +73,7 @@ class StoreCategoryTab extends StatelessWidget {
                     ]);
                   }),
 
-              const SizedBox(
-                height: CSizes.spaceBtwItems,
-              ),
+              const SizedBox(height: CSizes.spaceBtwItems),
             ],
           ),
         )

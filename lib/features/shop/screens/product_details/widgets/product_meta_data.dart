@@ -34,7 +34,7 @@ class ProductDetailMetaData extends StatelessWidget {
             // Sale Tag
             CustomRoundedContainer(
               radius: CSizes.sm,
-              backgroundColor: CColors.secondary.withOpacity(0.8),
+              backgroundColor: CColors.secondary.withValues(alpha: 0.8),
               padding: const EdgeInsets.symmetric(
                   horizontal: CSizes.sm, vertical: CSizes.xs),
               child: Text(

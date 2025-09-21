@@ -21,8 +21,8 @@ class CustomLoaders {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: UHelperFunctions.isDarkMode(Get.context!)
-                ? CColors.darkerGrey.withOpacity(0.9)
-                : CColors.grey.withOpacity(0.9)),
+                ? CColors.darkerGrey.withValues(alpha: 0.9)
+                : CColors.grey.withValues(alpha: 0.9)),
         child: Center(
           child: Text(
             message,
