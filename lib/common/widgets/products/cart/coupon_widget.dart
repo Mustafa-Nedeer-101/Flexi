@@ -35,10 +35,10 @@ class CustomCouponCode extends StatelessWidget {
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: dark
-                      ? CColors.white.withOpacity(0.5)
-                      : CColors.dark.withOpacity(0.5),
-                  backgroundColor: Colors.grey.withOpacity(0.2),
-                  side: BorderSide(color: Colors.grey.withOpacity(0.1)),
+                      ? CColors.white.withValues(alpha: 0.5)
+                      : CColors.dark.withValues(alpha: 0.5),
+                  backgroundColor: Colors.grey.withValues(alpha: 0.2),
+                  side: BorderSide(color: Colors.grey.withValues(alpha: 0.1)),
                 ),
                 onPressed: () {},
                 child: const Text('Apply')))

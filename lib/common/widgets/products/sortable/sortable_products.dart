@@ -28,7 +28,7 @@ class CustomSortableProducts extends StatelessWidget {
                 onChanged: (value) {
                   controller.sortProducts(value ?? 'Name');
                 },
-                value: controller.selectedSortOption.value,
+                initialValue: controller.selectedSortOption.value,
                 items: [
                   'Name',
                   'Higher Price',

@@ -22,13 +22,9 @@ class CategoryBrands extends StatelessWidget {
         const loader = Column(
           children: [
             CustomListTileShimmer(),
-            SizedBox(
-              height: CSizes.spaceBtwItems,
-            ),
+            SizedBox(height: CSizes.spaceBtwItems),
             CustomBoxesShimmer(),
-            SizedBox(
-              height: CSizes.spaceBtwItems,
-            ),
+            SizedBox(height: CSizes.spaceBtwItems),
           ],
         );
 
