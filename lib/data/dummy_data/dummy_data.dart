@@ -1233,6 +1233,7 @@ class DummyData {
         ],
         productType: ProductType.variable.toString()),
   ];
+
   // ProductCategory
   static final List<ProductCategoryModel> productCat = [
     // Products and their categories

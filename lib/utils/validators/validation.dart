@@ -59,7 +59,7 @@ class UValidator {
     }
 
     if (!RegExp(r'^[a-zA-Z0-9_]{3,16}$').hasMatch(value)) {
-      return 'Invalid username';
+      return 'Invalid username. It must be 3-16 characters long and contain only letters, numbers, and underscores.';
     }
 
     return null;
