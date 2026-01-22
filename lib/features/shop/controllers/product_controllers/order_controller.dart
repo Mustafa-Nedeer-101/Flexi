@@ -38,7 +38,7 @@ class OrderController extends GetxController {
   void processOrder(double totalAmount) async {
     try {
       // Start Loader
-      UFullSreenLoader.openLoadingDialog(
+      UFullScreenLoader.openLoadingDialog(
           'Processing your order', CImages.loading);
 
       // Get user authentication id

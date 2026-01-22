@@ -58,7 +58,7 @@ class NavigationMenuController extends GetxController {
     SettingsScreen(),
   ];
 
-  void updateIndex(val) {
+  void updateIndex(int val) {
     index.value = val;
   }
 }

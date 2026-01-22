@@ -28,7 +28,7 @@ class SignupController extends GetxController {
   Future<void> signup() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog(
+      UFullScreenLoader.openLoadingDialog(
           'We are processing your information...', CImages.loading);
 
       //Check Internet Connectivity
@@ -38,13 +38,13 @@ class SignupController extends GetxController {
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       //Form Validation
       if (!signupFormKey.currentState!.validate()) {
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
@@ -55,7 +55,7 @@ class SignupController extends GetxController {
             message:
                 'In order to create an acount, you have to accept privacy policy & terms of use.');
 
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
@@ -77,7 +77,7 @@ class SignupController extends GetxController {
       await userRepo.saveUserRecord(newUser);
 
       //Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Success Message
       CustomLoaders.successSnackbar(
@@ -90,7 +90,7 @@ class SignupController extends GetxController {
       ));
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());

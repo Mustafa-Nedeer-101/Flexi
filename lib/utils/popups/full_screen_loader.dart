@@ -4,7 +4,7 @@ import 'package:flexi/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class UFullSreenLoader {
+class UFullScreenLoader {
   // Open Loading Dialog
   static void openLoadingDialog(String text, String animation) {
     showDialog(
@@ -21,10 +21,11 @@ class UFullSreenLoader {
             child: Column(
               children: [
                 // AnimatedLoaderWidget
-                CustomAnimationLoaderWidget(
+                Flexible(
+                    child: CustomAnimationLoaderWidget(
                   text: text,
                   animation: animation,
-                )
+                ))
               ],
             ),
           ),
@@ -34,7 +35,7 @@ class UFullSreenLoader {
   }
 
   // Stop Loading Dialog
-  static stopLoading() {
+  static void stopLoading() {
     Navigator.of(Get.overlayContext!).pop();
   }
 }

@@ -14,7 +14,7 @@ class BannerModel {
   final String targetScreen;
 
   // empty model
-  static empty() => BannerModel(
+  static BannerModel empty() => BannerModel(
       number: '', image: '', isActive: false, targetScreen: '/home');
 
   // Upload a model to Firestore

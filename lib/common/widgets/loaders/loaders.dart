@@ -5,10 +5,10 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CustomLoaders {
-  static hideSnackbar() =>
+  static void hideSnackbar() =>
       ScaffoldMessenger.of(Get.context!).hideCurrentSnackBar();
 
-  static customToast({required message}) {
+  static void customToast({required dynamic message}) {
     ScaffoldMessenger.of(Get.context!).showSnackBar(SnackBar(
       elevation: 0,
       duration: const Duration(
@@ -33,7 +33,8 @@ class CustomLoaders {
     ));
   }
 
-  static successSnackbar({required title, message = '', duration = 3}) {
+  static void successSnackbar(
+      {required dynamic title, dynamic message = '', int duration = 3}) {
     Get.snackbar(title, message,
         isDismissible: true,
         shouldIconPulse: true,
@@ -48,7 +49,7 @@ class CustomLoaders {
         ));
   }
 
-  static warningSnackbar({required title, message = ''}) {
+  static void warningSnackbar({required dynamic title, dynamic message = ''}) {
     Get.snackbar(title, message,
         isDismissible: true,
         shouldIconPulse: true,
@@ -63,7 +64,7 @@ class CustomLoaders {
         ));
   }
 
-  static errorSnackbar({required title, message = ''}) {
+  static void errorSnackbar({required dynamic title, dynamic message = ''}) {
     Get.snackbar(title, message,
         isDismissible: true,
         shouldIconPulse: true,

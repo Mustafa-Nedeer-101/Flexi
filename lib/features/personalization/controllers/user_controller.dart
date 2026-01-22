@@ -35,22 +35,22 @@ class UserController extends GetxController {
   Future<void> reAuthenticateUser() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog('Processing...', CImages.loading);
+      UFullScreenLoader.openLoadingDialog('Processing...', CImages.loading);
 
-      //Check Internet Connectivity
+      // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         // show warning
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       // Validate
       if (!reAuthFormKey.currentState!.validate()) {
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
@@ -62,11 +62,11 @@ class UserController extends GetxController {
       // Delete Account
       await auth.deleteAccount();
 
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
       Get.offAll(() => const Login());
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());
@@ -76,7 +76,7 @@ class UserController extends GetxController {
   Future<void> deleteUserAccount() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog('Processing...', CImages.loading);
+      UFullScreenLoader.openLoadingDialog('Processing...', CImages.loading);
 
       //Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -85,7 +85,7 @@ class UserController extends GetxController {
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
@@ -97,19 +97,19 @@ class UserController extends GetxController {
       if (provider.isNotEmpty) {
         // Re verify email
         if (provider == 'google.com') {
-          await auth.signinWithGoogle();
+          await auth.signInWithGoogle();
           await auth.deleteAccount();
-          UFullSreenLoader.stopLoading();
+          UFullScreenLoader.stopLoading();
           Get.offAll(() => const Login());
         } else if (provider == 'password') {
-          UFullSreenLoader.stopLoading();
+          UFullScreenLoader.stopLoading();
           Get.to(() => const ReAuthLoginForm());
         }
       }
       return;
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());
@@ -190,7 +190,7 @@ class UserController extends GetxController {
   }
 
   // Function to upload user profile picture
-  uploadUserProfilePicture() async {
+  Future<void> uploadUserProfilePicture() async {
     try {
       final image = await ImagePicker().pickImage(
           source: ImageSource.gallery,

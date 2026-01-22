@@ -34,7 +34,7 @@ class ChangeNameController extends GetxController {
   Future<void> saveNewName() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog(
+      UFullScreenLoader.openLoadingDialog(
           'Updating your data...', CImages.loading);
 
       //Check Internet Connectivity
@@ -44,14 +44,14 @@ class ChangeNameController extends GetxController {
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       // Validation
       if (!saveFormKey.currentState!.validate()) {
         // Remove Loader
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
 
         return;
       }
@@ -67,7 +67,7 @@ class ChangeNameController extends GetxController {
       userController.user.value.lastName = lastName.text.trim();
 
       //Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       CustomLoaders.successSnackbar(
           title: 'Done', message: 'Your name has been updated.');
@@ -75,7 +75,7 @@ class ChangeNameController extends GetxController {
       Get.back();
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());
