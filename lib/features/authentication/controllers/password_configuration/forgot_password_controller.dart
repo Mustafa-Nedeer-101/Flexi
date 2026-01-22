@@ -17,14 +17,14 @@ class ForgotPasswordController extends GetxController {
   Future<void> sendPasswordResetEmail() async {
     try {
       // Show Loader
-      UFullSreenLoader.openLoadingDialog(
+      UFullScreenLoader.openLoadingDialog(
           'Sending you password reset link...', CImages.loading);
 
       // Check connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         // Remove Loader
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
 
         // show warning
         CustomLoaders.warningSnackbar(
@@ -37,7 +37,7 @@ class ForgotPasswordController extends GetxController {
       // Validation
       if (!forgotPasswordFormKey.currentState!.validate()) {
         // Remove Loader
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
 
         return;
       }
@@ -46,7 +46,7 @@ class ForgotPasswordController extends GetxController {
       AuthenticationRepo.instance.sendPasswordResetEmail(email.text.trim());
 
       //Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Success Message
       CustomLoaders.successSnackbar(
@@ -58,7 +58,7 @@ class ForgotPasswordController extends GetxController {
       Get.to(() => const ResetPassword());
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // show error
       CustomLoaders.errorSnackbar(title: 'Oh snap!', message: e.toString());

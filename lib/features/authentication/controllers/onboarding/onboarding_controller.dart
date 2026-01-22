@@ -1,6 +1,7 @@
 import 'package:flexi/features/authentication/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
@@ -13,6 +14,9 @@ class OnBoardingController extends GetxController {
   // The Next Button
   void nextPage() {
     if (currentPageIndex.value == numberOfPages.value - 1) {
+      // Set the flag in local storage
+      GetStorage().write('IS_SECOND_TIME', true);
+
       // Jump to Login page
       Get.offAll(const Login());
     } else {
@@ -23,7 +27,7 @@ class OnBoardingController extends GetxController {
   }
 
   // When Specific Dot Called
-  void goToPage(index) {
+  void goToPage(int index) {
     currentPageIndex.value = index;
     pageController.animateToPage(currentPageIndex.value,
         duration: const Duration(milliseconds: 600), curve: Curves.ease);

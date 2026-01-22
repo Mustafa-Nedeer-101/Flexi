@@ -58,7 +58,7 @@ class UValidator {
       return 'Username is required';
     }
 
-    if (!value.isUsername) {
+    if (!RegExp(r'^[a-zA-Z0-9_]{3,16}$').hasMatch(value)) {
       return 'Invalid username';
     }
 

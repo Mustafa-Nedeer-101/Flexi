@@ -19,7 +19,7 @@ class BannerController extends GetxController {
   final RxList<BannerModel> banners = <BannerModel>[].obs;
 
   // Update page navigation dots
-  void updatePageIndicator(index) {
+  void updatePageIndicator(int index) {
     carouselCurrentIndex.value = index;
   }
 

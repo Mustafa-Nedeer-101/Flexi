@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flexi/data/repositories/user/user_repo.dart';
 import 'package:flexi/features/authentication/screens/login/login.dart';
@@ -40,7 +41,7 @@ class AuthenticationRepo extends GetxController {
   }
 
   // Function to show Relavent Screen
-  screenRedirect() async {
+  Future<void> screenRedirect() async {
     User? user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
@@ -55,7 +56,7 @@ class AuthenticationRepo extends GetxController {
       }
     } else {
       // Local Storage
-      if (deviceStorage.read('isSecondTime') == true) {
+      if (deviceStorage.read('IS_SECOND_TIME') == true) {
         Get.offAll(() => const Login());
       } else {
         Get.offAll(() => const OnBoarding());
@@ -122,34 +123,38 @@ class AuthenticationRepo extends GetxController {
     }
   }
 
-  // Login with google
-  Future<UserCredential?> signinWithGoogle() async {
+  Future<UserCredential?> signInWithGoogle() async {
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      throw FirebaseAuthException(
+        code: 'unsupported-platform',
+        message: 'Google Sign-In is not supported on desktop.',
+      );
+    }
+
     try {
-      // Authentication flow
-      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
-
-      // Get the auth detail
-      final GoogleSignInAuthentication? googleAuth =
-          await userAccount?.authentication;
-
-      // create a new credential
-      final credentials = GoogleAuthProvider.credential(
-        accessToken: googleAuth?.accessToken,
-        idToken: googleAuth?.idToken,
+      final GoogleSignIn googleSignIn = GoogleSignIn.standard(
+        scopes: ['email'],
       );
 
-      // return user credential
-      return await _auth.signInWithCredential(credentials);
-    } on FirebaseAuthException catch (e) {
-      throw e.code;
-    } on FirebaseException catch (e) {
-      throw e.code;
-    } on FormatException catch (e) {
-      throw e.message;
-    } on PlatformException catch (e) {
-      throw e.code;
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
+      final GoogleSignInAccount? account = await googleSignIn.signIn();
+
+      if (account == null) return null;
+
+      final GoogleSignInAuthentication auth = await account.authentication;
+
+      final OAuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: auth.accessToken,
+        idToken: auth.idToken,
+      );
+
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } on FirebaseAuthException {
+      rethrow;
+    } catch (_) {
+      throw FirebaseAuthException(
+        code: 'unknown-error',
+        message: 'Google sign-in failed.',
+      );
     }
   }
 

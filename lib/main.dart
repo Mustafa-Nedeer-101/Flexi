@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+import 'dart:io';
 import 'package:firebase_app_check/firebase_app_check.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flexi/app.dart';
@@ -25,11 +27,12 @@ void main() async {
   );
 
   // Todo: App Check
-  await FirebaseAppCheck.instance.activate(
-    webProvider: ReCaptchaV3Provider('recaptcha-v3-site-key'),
-    appleProvider: AppleProvider.appAttest,
-    androidProvider: AndroidProvider.debug,
-  );
+  if (Platform.isAndroid || Platform.isIOS) {
+    await FirebaseAppCheck.instance.activate(
+      androidProvider: AndroidProvider.debug,
+      appleProvider: AppleProvider.debug,
+    );
+  }
 
   runApp(const App());
 }

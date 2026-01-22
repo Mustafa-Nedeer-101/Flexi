@@ -86,18 +86,19 @@ class AddressController extends GetxController {
   Future addNewAddress() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog('Storing Address...', CImages.loading);
+      UFullScreenLoader.openLoadingDialog(
+          'Storing Address...', CImages.loading);
 
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       // Form Validation
       if (!addressFormKey.currentState!.validate()) {
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
@@ -121,7 +122,7 @@ class AddressController extends GetxController {
       await selectAddress(address);
 
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Display success message
       CustomLoaders.successSnackbar(
@@ -136,7 +137,7 @@ class AddressController extends GetxController {
       Get.back();
       Navigator.of(Get.context!).pop();
     } catch (e) {
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
       CustomLoaders.errorSnackbar(
           title: 'Address not found', message: e.toString());
     }

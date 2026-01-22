@@ -26,11 +26,12 @@ class LoginController extends GetxController {
 
   // onInit
   @override
-  onInit() async {
+  void onInit() {
     // If remember user
-    if (deviceStorage.read('REMEMBER_ME_EMAIL') != null) {
+    if (deviceStorage.read('IS_SECOND_TIME') == true) {
       email.text = deviceStorage.read('REMEMBER_ME_EMAIL');
       password.text = deviceStorage.read('REMEMBER_ME_PASSWORD');
+      rememberMe.value = deviceStorage.read('REMEMBER_ME') ?? true;
     }
     super.onInit();
   }
@@ -39,7 +40,7 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog('Logging you in...', CImages.loading);
+      UFullScreenLoader.openLoadingDialog('Logging you in...', CImages.loading);
 
       //Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -48,53 +49,52 @@ class LoginController extends GetxController {
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       //Form Validation
       if (!loginFormKey.currentState!.validate()) {
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
+      //Login User
+      await AuthenticationRepo.instance
+          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+
+      // Initialize Local Storage
+      String uid = FirebaseAuth.instance.currentUser!.uid;
+      await ULocalStorage.init(uid);
+
       // Remember me check
       if (rememberMe.value) {
-        deviceStorage.write(
+        await deviceStorage.write(
           'REMEMBER_ME_EMAIL',
           email.text.trim(),
         );
-        deviceStorage.write(
+        await deviceStorage.write(
           'REMEMBER_ME_PASSWORD',
           password.text.trim(),
         );
+        await deviceStorage.write('IS_SECOND_TIME', true);
+        await deviceStorage.write('REMEMBER_ME', true);
+      } else {
+        await deviceStorage.remove('REMEMBER_ME_EMAIL');
+        await deviceStorage.remove('REMEMBER_ME_PASSWORD');
+        await deviceStorage.write('REMEMBER_ME', false);
       }
-
-      //Login User
-
-      // ignore: unused_local_variable
-      UserCredential userCredential = await AuthenticationRepo.instance
-          .loginWithEmailAndPassword(email.text.trim(), password.text.trim());
-
-      // Initialize Local Storage if the not initialized
-      if (deviceStorage.read("isSecondTime") != true) {
-        // Initialize user specific storage
-        await ULocalStorage.init(userCredential.user!.uid);
-      }
-
-      deviceStorage.write('isSecondTime', true);
 
       //Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Move To Navigation Menu
-
       FirebaseAuth.instance.currentUser?.emailVerified ?? false
           ? Get.offAll(() => const NavigationMenu())
           : AuthenticationRepo.instance.screenRedirect();
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());
@@ -105,7 +105,7 @@ class LoginController extends GetxController {
   Future<void> googleSignin() async {
     try {
       // Start Loading
-      UFullSreenLoader.openLoadingDialog('Logging you in...', CImages.loading);
+      UFullScreenLoader.openLoadingDialog('Logging you in...', CImages.loading);
 
       //Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
@@ -114,26 +114,26 @@ class LoginController extends GetxController {
         CustomLoaders.warningSnackbar(
             title: 'No Internet Connection',
             message: 'Please check your internet connection and try again');
-        UFullSreenLoader.stopLoading();
+        UFullScreenLoader.stopLoading();
         return;
       }
 
       // Google Login
       // ignore: unused_local_variable
       UserCredential? userCredential =
-          await AuthenticationRepo.instance.signinWithGoogle();
+          await AuthenticationRepo.instance.signInWithGoogle();
 
       // Save user record => should call user controller
       await userController.saveUserRecord(userCredential);
 
       //Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Move To Navigation Menu
       AuthenticationRepo.instance.screenRedirect();
     } catch (e) {
       // Remove Loader
-      UFullSreenLoader.stopLoading();
+      UFullScreenLoader.stopLoading();
 
       // Show Some Generic Error To The User
       CustomLoaders.errorSnackbar(title: 'Oh Snap!', message: e.toString());

@@ -24,8 +24,8 @@ class NavigationMenu extends StatelessWidget {
             elevation: 0,
             backgroundColor: dark ? CColors.black : CColors.white,
             indicatorColor: dark
-                ? CColors.white.withOpacity(0.1)
-                : CColors.black.withOpacity(0.1),
+                ? CColors.white.withValues(alpha: 0.1)
+                : CColors.black.withValues(alpha: 0.1),
             selectedIndex: controller.index.value,
             onDestinationSelected: controller.updateIndex,
             destinations: const [
@@ -58,7 +58,7 @@ class NavigationMenuController extends GetxController {
     SettingsScreen(),
   ];
 
-  void updateIndex(val) {
+  void updateIndex(int val) {
     index.value = val;
   }
 }

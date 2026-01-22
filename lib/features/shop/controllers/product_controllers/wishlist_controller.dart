@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flexi/common/widgets/loaders/loaders.dart';
 import 'package:flexi/data/repositories/products/products_repo.dart';
 import 'package:flexi/features/shop/models/product_model.dart';
@@ -13,14 +12,14 @@ class WishlistController extends GetxController {
   final favourites = <String, bool>{}.obs;
 
   @override
-  void onInit() {
-    initFavourites();
+  void onInit() async {
+    await initFavourites();
     super.onInit();
   }
 
   // Initialize favourites by reading from storage
   Future<void> initFavourites() async {
-    final json = ULocalStorage.instance().readData("Favourites");
+    final json = await ULocalStorage.instance().readData("Favourites");
 
     if (json != null) {
       final storedFavourites = jsonDecode(json) as Map<String, dynamic>;
